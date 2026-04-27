@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Wali Industries | Washing · Lawn Care · Property Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --green-deep:#0d2818;--green:#1a4a2e;--green-mid:#2a6e44;--green-light:#3d9e62;
+  --terra:#c44b28;--terra-light:#e06040;--teal:#3aafa9;--cream:#f5f3ef;--cream2:#ede9e3;
+  --text-dark:#0d1a12;--text-mid:#3a4a3e;--text-light:#7a8a7a;--white:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;background:var(--green-deep);display:flex;align-items:center;justify-content:space-between;height:64px;border-bottom:2px solid var(--green-mid)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-icon{display:flex;align-items:flex-end;gap:2px;height:32px}
+.nl-left{width:10px;height:24px;background:var(--green-deep);border:2px solid var(--teal);border-radius:2px 2px 0 0}
+.nl-mid{width:10px;height:18px;background:var(--terra);border-radius:2px 2px 0 0}
+.nl-right{width:10px;height:28px;background:var(--teal);border-radius:2px 2px 0 0;opacity:0.7}
+.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.08em;color:var(--white)}
+.nav-brand span{color:var(--terra-light)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-cta{background:var(--terra);color:var(--white);padding:9px 20px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:background 0.2s}
+.nav-cta:hover{background:var(--terra-light)}
+.nav-mobile-btn{display:none;background:none;border:none;cursor:pointer;color:var(--white);font-size:24px}
+.hero{min-height:100vh;background:var(--green-deep);display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden}
+.hero-bg-shape{position:absolute;top:-80px;right:-120px;width:600px;height:600px;background:radial-gradient(circle,rgba(58,175,169,0.12) 0%,transparent 65%);pointer-events:none}
+.hero-bg-shape2{position:absolute;bottom:-100px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(196,75,40,0.1) 0%,transparent 65%);pointer-events:none}
+.hero-lines{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,0.02) 0px,rgba(255,255,255,0.02) 1px,transparent 1px,transparent 60px);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:700px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:24px}
+.hero-eyebrow-line{width:40px;height:2px;background:var(--terra)}
+.hero-eyebrow-text{font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal)}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,10vw,130px);line-height:0.9;color:var(--white);margin-bottom:8px;letter-spacing:0.02em}
+h1 .accent{color:var(--terra-light)}
+h1 .teal{color:var(--teal)}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:36px;max-width:480px;font-weight:300}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px}
+.btn-primary{background:var(--terra);color:var(--white);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:9px;letter-spacing:0.02em}
+.btn-primary:hover{background:var(--terra-light);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--white);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:500;text-decoration:none;border:1.5px solid rgba(255,255,255,0.25);cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:9px}
+.btn-outline:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px)}
+.hero-badges{display:flex;gap:20px;flex-wrap:wrap}
+.badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 16px}
+.badge-icon{font-size:18px}
+.badge-text{font-size:12px;color:rgba(255,255,255,0.7);line-height:1.4}
+.badge-text strong{display:block;font-size:13px;color:var(--white);font-weight:600}
+.marquee-wrap{background:var(--terra);padding:12px 0;overflow:hidden;white-space:nowrap}
+.marquee-inner{display:inline-flex;animation:marquee 22s linear infinite}
+.marquee-item{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.1em;color:var(--white);padding:0 32px;opacity:0.9}
+.marquee-dot{color:rgba(255,255,255,0.5)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.about-section{padding:100px 5%;background:var(--cream)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:0 auto}
+.about-card{background:var(--green-deep);border-radius:16px;padding:40px;color:var(--white)}
+.about-card-logo{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.acl-shapes{display:flex;align-items:flex-end;gap:3px;height:40px}
+.acl-s1{width:13px;height:30px;background:var(--green-deep);border:2.5px solid var(--teal);border-radius:3px 3px 0 0}
+.acl-s2{width:13px;height:22px;background:var(--terra);border-radius:3px 3px 0 0}
+.acl-s3{width:13px;height:36px;background:var(--teal);border-radius:3px 3px 0 0;opacity:0.75}
+.acl-name{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.08em;color:var(--white)}
+.acl-name span{color:var(--terra-light)}
+.about-contact-list{display:flex;flex-direction:column;gap:14px}
+.acl-row{display:flex;align-items:center;gap:12px;font-size:15px;color:rgba(255,255,255,0.8)}
+.acl-row-icon{width:34px;height:34px;background:rgba(58,175,169,0.15);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.acl-row a{color:var(--teal);text-decoration:none;font-weight:500}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.astat{background:rgba(58,175,169,0.08);border:1px solid rgba(58,175,169,0.2);border-radius:10px;padding:16px;text-align:center}
+.astat-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--teal);letter-spacing:0.04em}
+.astat-label{font-size:11px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.06em;margin-top:2px}
+.about-right .section-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--terra);margin-bottom:12px}
+.about-right h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,60px);line-height:1;color:var(--text-dark);margin-bottom:20px;letter-spacing:0.02em}
+.about-right h2 span{color:var(--green-mid)}
+.about-right p{font-size:16px;color:var(--text-mid);line-height:1.8;margin-bottom:16px;font-weight:300}
+.about-values{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.av-row{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--cream2);border-radius:8px;border-left:3px solid var(--green-mid)}
+.av-row span{font-size:14px;font-weight:500;color:var(--text-dark)}
+.services-section{padding:100px 5%;background:var(--green-deep)}
+.services-header{text-align:center;margin-bottom:60px}
+.services-header .section-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.services-header h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,80px);color:var(--white);letter-spacing:0.03em;line-height:1}
+.services-header h2 span{color:var(--terra-light)}
+.services-header p{font-size:16px;color:rgba(255,255,255,0.55);margin-top:16px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7;font-weight:300}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:1100px;margin:0 auto}
+.scard{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:32px;transition:all 0.3s;position:relative;overflow:hidden}
+.scard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.scard:hover{background:rgba(255,255,255,0.07);border-color:rgba(58,175,169,0.3);transform:translateY(-4px)}
+.scard:hover::before{transform:scaleX(1)}
+.scard-icon{font-size:32px;margin-bottom:18px}
+.scard-name{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.04em;color:var(--white);margin-bottom:6px}
+.scard-sub{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.scard-desc{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7;font-weight:300}
+.scard-list{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:6px}
+.scard-list li{font-size:13px;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:8px}
+.scard-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--terra);flex-shrink:0}
+.booking-section{padding:100px 5%;background:var(--cream2)}
+.booking-inner{max-width:800px;margin:0 auto}
+.booking-inner .section-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--terra);text-align:center;margin-bottom:12px}
+.booking-inner h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,68px);color:var(--text-dark);letter-spacing:0.03em;text-align:center;line-height:1;margin-bottom:14px}
+.booking-inner h2 span{color:var(--green-mid)}
+.booking-inner .booking-sub{font-size:16px;color:var(--text-mid);text-align:center;margin-bottom:48px;line-height:1.7;font-weight:300}
+.bform{background:var(--white);border-radius:20px;padding:44px;box-shadow:0 4px 40px rgba(13,40,24,0.08)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fg{display:flex;flex-direction:column;gap:7px}
+.fg.full{grid-column:1/-1}
+label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-mid)}
+input,select,textarea{background:var(--cream2);border:1.5px solid rgba(13,40,24,0.12);border-radius:8px;padding:12px 16px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text-dark);outline:none;transition:border-color 0.2s;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--green-mid)}
+select option{background:var(--white)}
+textarea{resize:vertical;min-height:100px}
+.fsubmit{background:var(--green);color:var(--white);border:none;border-radius:10px;padding:15px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;width:100%;margin-top:8px;transition:background 0.2s;letter-spacing:0.02em}
+.fsubmit:hover{background:var(--green-mid)}
+.fsubmit:disabled{opacity:0.6;cursor:not-allowed}
+.fnote{font-size:12px;color:var(--text-light);text-align:center;margin-top:12px;line-height:1.6}
+.bsuccess{display:none;text-align:center;padding:48px;flex-direction:column;align-items:center;gap:14px}
+.bsuccess-icon{font-size:54px}
+.bsuccess h3{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--text-dark);letter-spacing:0.04em}
+.bsuccess p{color:var(--text-mid);font-size:15px;line-height:1.7}
+.chat-section{padding:100px 5%;background:var(--green-deep)}
+.chat-wrap{max-width:680px;margin:0 auto}
+.chat-header{text-align:center;margin-bottom:40px}
+.chat-header .section-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.chat-header h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,68px);color:var(--white);letter-spacing:0.03em;line-height:1}
+.chat-header h2 span{color:var(--terra-light)}
+.chat-header p{font-size:15px;color:rgba(255,255,255,0.5);margin-top:14px;line-height:1.7;font-weight:300}
+.chat-shell{background:var(--cream);border-radius:18px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.chat-topbar{background:var(--green-deep);padding:16px 22px;display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--green-mid)}
+.chat-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--green-mid),var(--teal));display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--white);font-weight:700;flex-shrink:0}
+.chat-info{flex:1}
+.chat-name{font-size:14px;font-weight:600;color:var(--white)}
+.chat-status{font-size:11px;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:5px}
+.chat-status-dot{width:6px;height:6px;border-radius:50%;background:#4ade80}
+.chat-badge{font-size:10px;padding:3px 10px;border-radius:20px;background:rgba(58,175,169,0.15);border:1px solid rgba(58,175,169,0.3);color:var(--teal)}
+.chat-msgs{height:340px;overflow-y:auto;padding:22px;display:flex;flex-direction:column;gap:16px;scroll-behavior:smooth;background:var(--cream)}
+.chat-msgs::-webkit-scrollbar{width:4px}
+.chat-msgs::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.1);border-radius:4px}
+.cmsg{display:flex;gap:10px;align-items:flex-start;animation:cmsg-in 0.22s ease}
+@keyframes cmsg-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.cmsg.user{flex-direction:row-reverse}
+.cmsg-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
+.cmsg-av.bot{background:linear-gradient(135deg,var(--green-mid),var(--teal));color:var(--white)}
+.cmsg-av.usr{background:var(--cream2);color:var(--text-mid);border:1px solid rgba(0,0,0,0.1)}
+.cbubble{max-width:78%;padding:10px 15px;border-radius:14px;font-size:13.5px;line-height:1.65;color:var(--text-dark);background:var(--white);box-shadow:0 1px 4px rgba(0,0,0,0.07)}
+.cmsg.user .cbubble{background:var(--green);color:var(--white);box-shadow:none;border-bottom-right-radius:4px}
+.cmsg.bot .cbubble{border-bottom-left-radius:4px}
+.ctyping{display:flex;gap:4px;align-items:center;padding:3px 0}
+.ctyping span{width:6px;height:6px;border-radius:50%;background:var(--text-light);animation:cbounce 1.2s infinite ease-in-out}
+.ctyping span:nth-child(2){animation-delay:.2s}
+.ctyping span:nth-child(3){animation-delay:.4s}
+@keyframes cbounce{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+.chat-chips{padding:0 22px 12px;display:flex;gap:8px;flex-wrap:wrap;background:var(--cream)}
+.cchip{font-size:12px;padding:6px 13px;border-radius:20px;border:1.5px solid var(--green-mid);background:transparent;color:var(--green);cursor:pointer;transition:all 0.15s;white-space:nowrap;font-family:'DM Sans',sans-serif;font-weight:500}
+.cchip:hover{background:var(--green);color:var(--white)}
+.chat-inputbar{padding:14px 22px 18px;border-top:1px solid rgba(0,0,0,0.08);display:flex;gap:10px;align-items:flex-end;background:var(--cream)}
+.chat-inputbar textarea{background:var(--white);border:1.5px solid rgba(0,0,0,0.12);border-radius:10px;padding:10px 14px;font-family:'DM Sans',sans-serif;font-size:13.5px;color:var(--text-dark);outline:none;flex:1;resize:none;min-height:40px;max-height:100px;transition:border-color 0.2s;line-height:1.5}
+.chat-inputbar textarea:focus{border-color:var(--green-mid)}
+.csend{width:38px;height:38px;border-radius:9px;background:var(--green);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s}
+.csend:hover{background:var(--green-mid)}
+.csend:disabled{opacity:0.3;cursor:default}
+.csend svg{width:15px;height:15px;fill:none;stroke:white;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.contact-section{padding:100px 5%;background:var(--cream)}
+.contact-inner{max-width:1000px;margin:0 auto}
+.contact-inner .section-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--terra);text-align:center;margin-bottom:12px}
+.contact-inner h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,68px);color:var(--text-dark);letter-spacing:0.03em;text-align:center;margin-bottom:52px;line-height:1}
+.contact-inner h2 span{color:var(--green-mid)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ccard{background:var(--white);border-radius:14px;padding:28px;display:flex;align-items:center;gap:16px;box-shadow:0 2px 16px rgba(13,40,24,0.06)}
+.ccard-icon{width:50px;height:50px;border-radius:12px;background:rgba(26,74,46,0.08);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.ccard-label{font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-light);margin-bottom:5px;font-weight:600}
+.ccard-val{font-size:16px;font-weight:600;color:var(--text-dark)}
+.ccard-val a{color:var(--green);text-decoration:none}
+.ccard-val a:hover{color:var(--terra)}
+.cform-wrap{background:var(--white);border-radius:14px;padding:32px;box-shadow:0 2px 16px rgba(13,40,24,0.06);grid-column:1/-1}
+.cform-title{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--text-dark);letter-spacing:0.04em;margin-bottom:20px}
+.cform-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+footer{background:var(--green-deep);padding:52px 5% 28px;text-align:center;border-top:2px solid var(--green-mid)}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.08em;color:var(--white);margin-bottom:6px}
+.footer-logo span{color:var(--terra-light)}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:28px}
+.footer-links{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--teal)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.25);line-height:1.8}
+.toast{position:fixed;bottom:28px;right:28px;background:var(--green-deep);border:1px solid var(--green-mid);border-radius:12px;padding:16px 22px;font-size:14px;color:var(--white);z-index:9999;transform:translateY(100px);opacity:0;transition:all 0.3s;max-width:320px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.toast.show{transform:translateY(0);opacity:1}
+.toast strong{color:var(--teal);display:block;margin-bottom:4px}
+
+/* ── ADMIN ── */
+#admin-overlay{display:none;position:fixed;inset:0;background:var(--green-deep);z-index:9000;overflow-y:auto;font-family:'DM Sans',sans-serif}
+#admin-overlay.open{display:block}
+.admin-login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px}
+.admin-login-box{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:48px;width:100%;max-width:420px;text-align:center}
+.admin-login-logo{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);letter-spacing:0.08em;margin-bottom:6px}
+.admin-login-logo span{color:var(--terra-light)}
+.admin-login-sub{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:32px}
+.admin-login-box input{background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.12);color:var(--white);border-radius:10px;padding:13px 16px;font-size:14px;width:100%;margin-bottom:14px;font-family:'DM Sans',sans-serif}
+.admin-login-box input::placeholder{color:rgba(255,255,255,0.3)}
+.admin-login-box input:focus{border-color:var(--teal);outline:none}
+.admin-login-btn{background:var(--terra);color:var(--white);border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:600;cursor:pointer;width:100%;font-family:'DM Sans',sans-serif;transition:background 0.2s}
+.admin-login-btn:hover{background:var(--terra-light)}
+.admin-err{font-size:13px;color:#f87171;margin-top:12px;min-height:20px}
+.admin-panel{padding:32px 5% 60px}
+.admin-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:gap}
+.admin-topbar-left{display:flex;align-items:center;gap:16px}
+.admin-title{font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--white);letter-spacing:0.06em}
+.admin-title span{color:var(--terra-light)}
+.admin-logout{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);padding:8px 18px;border-radius:8px;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.admin-logout:hover{background:rgba(255,255,255,0.14);color:var(--white)}
+.admin-stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:32px}
+.adstat{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px;text-align:center}
+.adstat-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--teal);letter-spacing:0.04em}
+.adstat-label{font-size:11px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px}
+.admin-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+.afilter{background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);padding:7px 16px;border-radius:20px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;transition:all 0.2s}
+.afilter.active,.afilter:hover{background:var(--green-mid);border-color:var(--green-mid);color:var(--white)}
+.admin-search{background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);color:var(--white);border-radius:8px;padding:8px 14px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;width:220px}
+.admin-search::placeholder{color:rgba(255,255,255,0.3)}
+.admin-search:focus{border-color:var(--teal)}
+.bookings-table-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden}
+.bookings-table{width:100%;border-collapse:collapse}
+.bookings-table th{background:rgba(255,255,255,0.06);padding:12px 16px;text-align:left;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);border-bottom:1px solid rgba(255,255,255,0.06)}
+.bookings-table td{padding:14px 16px;font-size:13px;color:rgba(255,255,255,0.75);border-bottom:1px solid rgba(255,255,255,0.04);vertical-align:top}
+.bookings-table tr:last-child td{border-bottom:none}
+.bookings-table tr:hover td{background:rgba(255,255,255,0.03)}
+.bstatus{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:0.04em}
+.bstatus.new{background:rgba(58,175,169,0.15);color:var(--teal);border:1px solid rgba(58,175,169,0.3)}
+.bstatus.confirmed{background:rgba(61,158,98,0.15);color:#4ade80;border:1px solid rgba(61,158,98,0.3)}
+.bstatus.done{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.1)}
+.bstatus.cancelled{background:rgba(196,75,40,0.15);color:var(--terra-light);border:1px solid rgba(196,75,40,0.3)}
+.btable-actions{display:flex;gap:6px}
+.btable-btn{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);padding:4px 10px;border-radius:6px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s}
+.btable-btn:hover{background:rgba(255,255,255,0.14);color:var(--white)}
+.btable-btn.del:hover{background:rgba(196,75,40,0.3);border-color:var(--terra);color:var(--terra-light)}
+.btable-btn.confirm:hover{background:rgba(61,158,98,0.2);border-color:#4ade80;color:#4ade80}
+.no-bookings{text-align:center;padding:60px 20px;color:rgba(255,255,255,0.3);font-size:15px}
+.admin-chart-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.admin-chart-box{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px}
+.admin-chart-title{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:20px}
+.bar-chart{display:flex;flex-direction:column;gap:10px}
+.bar-row{display:flex;align-items:center;gap:10px;font-size:12px;color:rgba(255,255,255,0.6)}
+.bar-label{width:120px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar-track{flex:1;background:rgba(255,255,255,0.06);border-radius:4px;height:14px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--green-mid),var(--teal));transition:width 0.8s ease}
+.bar-val{width:28px;text-align:right;flex-shrink:0}
+.setup-section{margin-top:40px;background:rgba(58,175,169,0.07);border:1px solid rgba(58,175,169,0.2);border-radius:14px;padding:28px}
+.setup-title{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--teal);letter-spacing:0.06em;margin-bottom:16px}
+.setup-step{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
+.setup-num{width:28px;height:28px;border-radius:50%;background:var(--terra);color:var(--white);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.setup-step-content{flex:1}
+.setup-step-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px}
+.setup-step-desc{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6}
+.setup-step-desc code{background:rgba(255,255,255,0.1);border-radius:4px;padding:1px 6px;font-size:12px;color:var(--teal);font-family:monospace}
+.config-inputs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.config-fg{display:flex;flex-direction:column;gap:6px}
+.config-fg label{font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.config-fg input{background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);color:var(--white);border-radius:8px;padding:10px 14px;font-size:13px;font-family:'DM Sans',sans-serif}
+.config-fg input:focus{border-color:var(--teal);outline:none}
+.config-fg input::placeholder{color:rgba(255,255,255,0.2)}
+.config-save{background:var(--teal);color:var(--white);border:none;border-radius:8px;padding:11px 24px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:14px;transition:background 0.2s}
+.config-save:hover{background:#2d8f8a}
+
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-links.open{display:flex;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--green-deep);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:36px;padding:40px}
+  .nav-mobile-btn{display:block;z-index:101;position:relative}
+  .about-grid,.cgrid,.admin-chart-row,.config-inputs{grid-template-columns:1fr}
+  .fgrid,.cform-grid{grid-template-columns:1fr}
+  .bform{padding:24px}
+  .bookings-table{display:block;overflow-x:auto}
+  .cform-wrap{grid-column:1}
+}
+</style>
+</head>
+<body>
+
+<!-- PUBLIC SITE -->
+<div id="public-site">
+<nav>
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-icon"><div class="nl-left"></div><div class="nl-mid"></div><div class="nl-right"></div></div>
+    <span class="nav-brand">WALI <span>INDUSTRIES</span></span>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#booking">Book</a></li>
+    <li><a href="#support">Support</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Free Quote</a>
+  <button class="nav-mobile-btn" id="nav-toggle" onclick="toggleNav()">☰</button>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg-shape"></div><div class="hero-bg-shape2"></div><div class="hero-lines"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span class="hero-eyebrow-text">Connecticut Property Services</span></div>
+    <h1>WALI<br/><span class="accent">INDUS</span><span class="teal">TRIES</span></h1>
+    <p class="hero-sub">Professional washing, lawn care, and property maintenance. We keep your home and business looking its best — every time.</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-primary">📅 Get a Free Quote</a>
+      <a href="tel:+19599884853" class="btn-outline">📞 (959) 988-4853</a>
+    </div>
+    <div class="hero-badges">
+      <div class="badge"><div class="badge-icon">✅</div><div class="badge-text"><strong>Fully Insured</strong>Licensed & Bonded</div></div>
+      <div class="badge"><div class="badge-icon">⭐</div><div class="badge-text"><strong>Free Estimates</strong>No Obligation</div></div>
+      <div class="badge"><div class="badge-icon">🤝</div><div class="badge-text"><strong>Local & Trusted</strong>Serving CT</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap"><div class="marquee-inner">
+  <span class="marquee-item">Pressure Washing <span class="marquee-dot">·</span></span>
+  <span class="marquee-item">Lawn Care <span class="marquee-dot">·</span></span>
+  <span class="marquee-item">Window Cleaning <span class="marquee-dot">·</span></span>
+  <span class="marquee-item">Gutter Cleaning <span class="marquee-dot">·</span></span>
+  <span class="marquee-item">Property Maintenance <span class="marquee-dot">·</span></span>
+  <span class="marquee-item">Driveway Washing <span class="marquee-dot">·</span></span>
+  <span class="marquee-item">Deck Cleaning <span class="marquee-dot">·</span></span>
+  <span class="marquee-item">Pressure Washing <span class="marquee-dot">·</span></span>
+  <span class="marquee-item">Lawn Care <span class="marquee-dot">·</span></span>
+  <span class="marquee-item">Window Cleaning <span class="marquee-dot">·</span></span>
+  <span class="marquee-item">Gutter Cleaning <span class="marquee-dot">·</span></span>
+  <span class="marquee-item">Property Maintenance <span class="marquee-dot">·</span></span>
+  <span class="marquee-item">Driveway Washing <span class="marquee-dot">·</span></span>
+  <span class="marquee-item">Deck Cleaning <span class="marquee-dot">·</span></span>
+</div></div>
+
+<section class="about-section" id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-card">
+        <div class="about-card-logo">
+          <div class="acl-shapes"><div class="acl-s1"></div><div class="acl-s2"></div><div class="acl-s3"></div></div>
+          <div class="acl-name">WALI <span>INDUSTRIES</span></div>
+        </div>
+        <div class="about-contact-list">
+          <div class="acl-row"><div class="acl-row-icon">✉</div><a href="mailto:Waliomar352@gmail.com">Waliomar352@gmail.com</a></div>
+          <div class="acl-row"><div class="acl-row-icon">📞</div><a href="tel:+19599884853">+1 (959) 988-4853</a></div>
+          <div class="acl-row"><div class="acl-row-icon">📍</div><span>Connecticut, USA</span></div>
+        </div>
+        <div class="about-stats">
+          <div class="astat"><div class="astat-num">100%</div><div class="astat-label">Satisfaction</div></div>
+          <div class="astat"><div class="astat-num">FREE</div><div class="astat-label">Estimates</div></div>
+          <div class="astat"><div class="astat-num">CT</div><div class="astat-label">Service Area</div></div>
+          <div class="astat"><div class="astat-num">PRO</div><div class="astat-label">Grade Equipment</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="section-eyebrow">Who We Are</div>
+      <h2>LOCAL PROS <span>YOU CAN TRUST</span></h2>
+      <p>Wali Industries is a Connecticut-based property services company delivering professional results at honest prices. From driveways to lawns, windows to gutters — we handle it all.</p>
+      <p>We show up on time, treat your property with respect, and don't leave until the job is done right.</p>
+      <div class="about-values">
+        <div class="av-row"><span>🔆 Professional-grade equipment & techniques</span></div>
+        <div class="av-row"><span>🤝 Honest pricing with no hidden fees</span></div>
+        <div class="av-row"><span>📍 Locally owned & community focused</span></div>
+        <div class="av-row"><span>⭐ Free estimates on every job</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-section" id="services">
+  <div class="services-header">
+    <div class="section-eyebrow">What We Do</div>
+    <h2>OUR <span>SERVICES</span></h2>
+    <p>Everything your property needs to stay clean, maintained, and looking great year-round.</p>
+  </div>
+  <div class="services-grid">
+    <div class="scard"><div class="scard-icon">💦</div><div class="scard-name">Pressure Washing</div><div class="scard-sub">Clean Surfaces</div><p class="scard-desc">High-pressure washing that removes years of dirt, grime, mold, and stains from any outdoor surface.</p><ul class="scard-list"><li>Driveways & sidewalks</li><li>Decks & patios</li><li>Siding & fences</li><li>Commercial surfaces</li></ul></div>
+    <div class="scard"><div class="scard-icon">🌿</div><div class="scard-name">Lawn Care</div><div class="scard-sub">Greener Lawns</div><p class="scard-desc">Professional lawn maintenance keeping your yard healthy, neat, and lush every visit.</p><ul class="scard-list"><li>Mowing & edging</li><li>Trimming & cleanup</li><li>Seasonal treatments</li><li>Leaf removal</li></ul></div>
+    <div class="scard"><div class="scard-icon">🪟</div><div class="scard-name">Window Cleaning</div><div class="scard-sub">Crystal Clear</div><p class="scard-desc">Streak-free window cleaning for residential and commercial properties, inside and out.</p><ul class="scard-list"><li>Residential windows</li><li>Commercial storefronts</li><li>Screens & frames</li><li>High-reach windows</li></ul></div>
+    <div class="scard"><div class="scard-icon">🏠</div><div class="scard-name">Property Maintenance</div><div class="scard-sub">Full Service</div><p class="scard-desc">Comprehensive property upkeep from gutter cleaning to general maintenance.</p><ul class="scard-list"><li>Gutter cleaning</li><li>General maintenance</li><li>Seasonal prep</li><li>Custom service plans</li></ul></div>
+  </div>
+</section>
+
+<section class="booking-section" id="booking">
+  <div class="booking-inner">
+    <div class="section-eyebrow">Schedule</div>
+    <h2>BOOK A <span>FREE QUOTE</span></h2>
+    <p class="booking-sub">Fill out the form and we'll be in touch within 24 hours — no commitment required.</p>
+    <div class="bform" id="bform-wrap">
+      <div class="fgrid" id="bform-fields">
+        <div class="fg"><label>First Name *</label><input type="text" id="b-fname" placeholder="Your first name"/></div>
+        <div class="fg"><label>Last Name *</label><input type="text" id="b-lname" placeholder="Your last name"/></div>
+        <div class="fg"><label>Phone Number *</label><input type="tel" id="b-phone" placeholder="(555) 000-0000"/></div>
+        <div class="fg"><label>Email</label><input type="email" id="b-email" placeholder="you@email.com"/></div>
+        <div class="fg"><label>Service Needed *</label>
+          <select id="b-service">
+            <option value="">Select a service...</option>
+            <option>Pressure Washing</option>
+            <option>Lawn Care</option>
+            <option>Window Cleaning</option>
+            <option>Gutter Cleaning</option>
+            <option>Property Maintenance</option>
+            <option>Multiple Services</option>
+            <option>Not Sure — Need Assessment</option>
+          </select>
+        </div>
+        <div class="fg"><label>Preferred Date</label><input type="date" id="b-date"/></div>
+        <div class="fg"><label>Preferred Time</label>
+          <select id="b-time">
+            <option>Any time works</option>
+            <option>Morning (8am–12pm)</option>
+            <option>Afternoon (12pm–4pm)</option>
+            <option>Evening (4pm–6pm)</option>
+          </select>
+        </div>
+        <div class="fg"><label>Property Address</label><input type="text" id="b-addr" placeholder="123 Main St, City, CT"/></div>
+        <div class="fg full"><label>Project Details</label><textarea id="b-notes" placeholder="Tell us about your project — surface type, size, any specific concerns..."></textarea></div>
+        <div class="fg full">
+          <button class="fsubmit" id="bsubmit-btn" onclick="submitBooking()">Request Free Quote →</button>
+          <p class="fnote">🔒 Your info is private. We'll call or email within 24 hours.</p>
+        </div>
+      </div>
+      <div class="bsuccess" id="bsuccess">
+        <div class="bsuccess-icon">🌿</div>
+        <h3>QUOTE REQUESTED!</h3>
+        <p>We'll be in touch within 24 hours.<br/>Questions? Call us at <strong style="color:var(--green)">(959) 988-4853</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chat-section" id="support">
+  <div class="chat-wrap">
+    <div class="chat-header">
+      <div class="section-eyebrow">24/7 Support</div>
+      <h2>GET <span>ANSWERS</span></h2>
+      <p>Have questions about our services, pricing, or availability? We're here to help anytime.</p>
+    </div>
+    <div class="chat-shell">
+      <div class="chat-topbar">
+        <div class="chat-av">WI</div>
+        <div class="chat-info"><div class="chat-name">Wali Industries Support</div><div class="chat-status"><span class="chat-status-dot"></span>Online — Here to help</div></div>
+        <div class="chat-badge">Online 24/7</div>
+      </div>
+      <div class="chat-msgs" id="chat-msgs">
+        <div class="cmsg bot"><div class="cmsg-av bot">WI</div><div class="cbubble">Hi! Welcome to Wali Industries. I can help answer questions about our services, pricing, and scheduling. What can I help you with?</div></div>
+      </div>
+      <div class="chat-chips" id="chat-chips">
+        <div class="cchip" onclick="askChip(this)">What services do you offer?</div>
+        <div class="cchip" onclick="askChip(this)">How much does pressure washing cost?</div>
+        <div class="cchip" onclick="askChip(this)">Do you offer free estimates?</div>
+        <div class="cchip" onclick="askChip(this)">What areas do you serve?</div>
+      </div>
+      <div class="chat-inputbar">
+        <textarea id="chat-inp" rows="1" placeholder="Type a message..."></textarea>
+        <button class="csend" id="chat-send" disabled onclick="chatGo()">
+          <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="section-eyebrow">Reach Out</div>
+    <h2>CONTACT <span>US</span></h2>
+    <div class="cgrid">
+      <div class="ccard"><div class="ccard-icon">📞</div><div><div class="ccard-label">Phone</div><div class="ccard-val"><a href="tel:+19599884853">+1 (959) 988-4853</a></div></div></div>
+      <div class="ccard"><div class="ccard-icon">✉</div><div><div class="ccard-label">Email</div><div class="ccard-val"><a href="mailto:Waliomar352@gmail.com">Waliomar352@gmail.com</a></div></div></div>
+      <div class="ccard"><div class="ccard-icon">📍</div><div><div class="ccard-label">Service Area</div><div class="ccard-val">Connecticut, USA</div></div></div>
+      <div class="ccard"><div class="ccard-icon">🕐</div><div><div class="ccard-label">Hours</div><div class="ccard-val">Mon–Sat: 7am – 6pm</div></div></div>
+      <div class="cform-wrap">
+        <div class="cform-title">SEND A MESSAGE</div>
+        <div class="cform-grid">
+          <div class="fg"><label>Name</label><input type="text" id="c-name" placeholder="Your name"/></div>
+          <div class="fg"><label>Phone or Email</label><input type="text" id="c-contact" placeholder="How to reach you"/></div>
+          <div class="fg full"><label>Message</label><textarea id="c-msg" style="min-height:90px" placeholder="What can we help you with?"></textarea></div>
+          <div class="fg full"><button class="fsubmit" onclick="submitContact()">Send Message →</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">WALI <span>INDUSTRIES</span></div>
+  <div class="footer-tagline">Washing · Lawn Care · Window Cleaning · Property Maintenance</div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#booking">Book a Quote</a>
+    <a href="#support">Support</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+19599884853">(959) 988-4853</a>
+  </div>
+  <div class="footer-copy">© 2025 Wali Industries · Connecticut · Waliomar352@gmail.com</div>
+</footer>
+</div><!-- /public-site -->
+
+<!-- ADMIN OVERLAY -->
+<div id="admin-overlay">
+  <!-- Login Screen -->
+  <div id="admin-login-screen" class="admin-login">
+    <div class="admin-login-box">
+      <div class="admin-login-logo">WALI <span>ADMIN</span></div>
+      <div class="admin-login-sub">Owner access only</div>
+      <input type="password" id="admin-pw" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')adminLogin()"/>
+      <button class="admin-login-btn" onclick="adminLogin()">Sign In →</button>
+      <div class="admin-err" id="admin-err"></div>
+      <div style="margin-top:20px"><a href="#" onclick="closeAdmin()" style="font-size:13px;color:rgba(255,255,255,0.3);text-decoration:none">← Back to site</a></div>
+    </div>
+  </div>
+  <!-- Dashboard -->
+  <div id="admin-dashboard" style="display:none">
+    <div class="admin-panel">
+      <div class="admin-topbar">
+        <div class="admin-topbar-left">
+          <div class="admin-title">WALI <span>ADMIN</span></div>
+        </div>
+        <button class="admin-logout" onclick="adminLogout()">Sign Out</button>
+      </div>
+      <!-- Stats -->
+      <div class="admin-stats-row" id="admin-stats-row"></div>
+      <!-- Filters -->
+      <div class="admin-filters">
+        <button class="afilter active" onclick="filterBookings('all',this)">All</button>
+        <button class="afilter" onclick="filterBookings('new',this)">New</button>
+        <button class="afilter" onclick="filterBookings('confirmed',this)">Confirmed</button>
+        <button class="afilter" onclick="filterBookings('done',this)">Done</button>
+        <button class="afilter" onclick="filterBookings('cancelled',this)">Cancelled</button>
+        <input class="admin-search" id="admin-search" placeholder="🔍 Search bookings..." oninput="renderBookings()"/>
+      </div>
+      <!-- Table -->
+      <div class="bookings-table-wrap">
+        <table class="bookings-table">
+          <thead><tr>
+            <th>#</th><th>Date Booked</th><th>Name</th><th>Phone</th><th>Service</th><th>Appt Date</th><th>Address</th><th>Status</th><th>Actions</th>
+          </tr></thead>
+          <tbody id="bookings-tbody"></tbody>
+        </table>
+      </div>
+      <!-- Charts -->
+      <div class="admin-chart-row">
+        <div class="admin-chart-box">
+          <div class="admin-chart-title">Bookings by Service</div>
+          <div class="bar-chart" id="chart-services"></div>
+        </div>
+        <div class="admin-chart-box">
+          <div class="admin-chart-title">Bookings by Status</div>
+          <div class="bar-chart" id="chart-status"></div>
+        </div>
+      </div>
+      <!-- Notification Setup -->
+      <div class="setup-section">
+        <div class="setup-title">⚙️ NOTIFICATION SETUP & PUBLISHING GUIDE</div>
+        <div class="setup-step">
+          <div class="setup-num">1</div>
+          <div class="setup-step-content">
+            <div class="setup-step-title">Publish your site FREE with Netlify</div>
+            <div class="setup-step-desc">Go to <code>netlify.com</code> → Sign up free → Click "Add new site" → "Deploy manually" → Drag and drop this HTML file. Your site goes live instantly at a link like <code>wali-industries.netlify.app</code>. You can also buy a custom domain (e.g. <code>waliindustries.com</code>) for ~$12/year.</div>
+          </div>
+        </div>
+        <div class="setup-step">
+          <div class="setup-num">2</div>
+          <div class="setup-step-content">
+            <div class="setup-step-title">Your admin link</div>
+            <div class="setup-step-desc">Once published, your admin panel is at <code>yoursite.netlify.app/?admin=true</code> — only you know this link. Share your main link <code>yoursite.netlify.app</code> publicly.</div>
+          </div>
+        </div>
+        <div class="setup-step">
+          <div class="setup-num">3</div>
+          <div class="setup-step-content">
+            <div class="setup-step-title">Set up Email Notifications (Free) via EmailJS</div>
+            <div class="setup-step-desc">Go to <code>emailjs.com</code> → Create free account → "Add New Service" → connect your Gmail (Waliomar352@gmail.com) → Create an Email Template with variables <code>&#123;&#123;name&#125;&#125;</code>, <code>&#123;&#123;phone&#125;&#125;</code>, <code>&#123;&#123;service&#125;&#125;</code>, <code>&#123;&#123;date&#125;&#125;</code>, <code>&#123;&#123;address&#125;&#125;</code>, <code>&#123;&#123;notes&#125;&#125;</code> → Copy your Service ID, Template ID, and Public Key into the fields below and click Save.</div>
+          </div>
+        </div>
+        <div class="setup-step">
+          <div class="setup-num">4</div>
+          <div class="setup-step-content">
+            <div class="setup-step-title">Set up SMS Notifications via Twilio (~$1/month)</div>
+            <div class="setup-step-desc">Go to <code>twilio.com</code> → Sign up → Get a free phone number → Copy your Account SID, Auth Token, and Twilio phone number below. Note: Twilio requires a small backend (serverless function). The easiest way is a free <code>make.com</code> webhook — set one up to forward booking data as an SMS to (959) 988-4853. Enter your Make.com webhook URL below.</div>
+          </div>
+        </div>
+        <div class="config-inputs">
+          <div class="config-fg"><label>EmailJS Service ID</label><input id="cfg-ejs-service" placeholder="service_xxxxxxx"/></div>
+          <div class="config-fg"><label>EmailJS Template ID</label><input id="cfg-ejs-template" placeholder="template_xxxxxxx"/></div>
+          <div class="config-fg"><label>EmailJS Public Key</label><input id="cfg-ejs-key" placeholder="xxxxxxxxxxxxxxxxxxxx"/></div>
+          <div class="config-fg"><label>SMS Webhook URL (Make.com)</label><input id="cfg-sms-url" placeholder="https://hook.make.com/..."/></div>
+          <div class="config-fg"><label>Admin Password (change this!)</label><input id="cfg-pw" placeholder="Current: wali2025admin"/></div>
+        </div>
+        <button class="config-save" onclick="saveConfig()">💾 Save Configuration</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><strong id="toast-title"></strong><span id="toast-body"></span></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+// ── CONFIG (saved in memory; in production these would be env vars) ──
+let CFG = {
+  adminPw: 'wali2025admin',
+  ejsService: '',
+  ejsTemplate: '',
+  ejsKey: '',
+  smsUrl: ''
+};
+
+// ── BOOKINGS STORAGE ──
+let bookings = JSON.parse(localStorage.getItem('wi_bookings') || '[]');
+let currentFilter = 'all';
+
+function saveBookings(){localStorage.setItem('wi_bookings',JSON.stringify(bookings));}
+
+// ── TOAST ──
+function showToast(title,body){
+  const t=document.getElementById('toast');
+  document.getElementById('toast-title').textContent=title;
+  document.getElementById('toast-body').textContent=body;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),4200);
+}
+
+// ── URL ROUTING ──
+function checkRoute(){
+  const p=new URLSearchParams(window.location.search);
+  if(p.get('admin')==='true'){
+    document.getElementById('admin-overlay').classList.add('open');
+  }
+}
+window.addEventListener('load', checkRoute);
+
+// ── MOBILE NAV ──
+function toggleNav(){
+  const nl=document.getElementById('nav-links');
+  const btn=document.getElementById('nav-toggle');
+  nl.classList.toggle('open');
+  btn.textContent=nl.classList.contains('open')?'✕':'☰';
+}
+document.querySelectorAll('#nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('nav-toggle').textContent='☰';
+  });
+});
+
+// ── BOOKING FORM ──
+async function submitBooking(){
+  const fname=document.getElementById('b-fname').value.trim();
+  const lname=document.getElementById('b-lname').value.trim();
+  const phone=document.getElementById('b-phone').value.trim();
+  const email=document.getElementById('b-email').value.trim();
+  const service=document.getElementById('b-service').value;
+  const date=document.getElementById('b-date').value;
+  const time=document.getElementById('b-time').value;
+  const addr=document.getElementById('b-addr').value.trim();
+  const notes=document.getElementById('b-notes').value.trim();
+  if(!fname||!phone||!service){showToast('⚠️ Missing Info','Please fill in name, phone, and service.');return;}
+  const btn=document.getElementById('bsubmit-btn');
+  btn.disabled=true;btn.textContent='Submitting...';
+  const booking={
+    id:'WI-'+Date.now(),
+    submittedAt:new Date().toISOString(),
+    name:fname+' '+lname,
+    phone,email,service,date,time,addr,notes,
+    status:'new'
+  };
+  bookings.unshift(booking);
+  saveBookings();
+  await sendNotifications(booking);
+  document.getElementById('bform-fields').style.display='none';
+  const s=document.getElementById('bsuccess');
+  s.style.display='flex';
+  showToast('✅ Received!','We\'ll contact you within 24 hours.');
+}
+
+// ── NOTIFICATIONS ──
+async function sendNotifications(b){
+  // Email via EmailJS
+  if(CFG.ejsService&&CFG.ejsTemplate&&CFG.ejsKey){
+    try{
+      emailjs.init(CFG.ejsKey);
+      await emailjs.send(CFG.ejsService, CFG.ejsTemplate, {
+        name:b.name, phone:b.phone, email:b.email||'Not provided',
+        service:b.service, date:b.date||'Flexible', time:b.time,
+        address:b.addr||'Not provided', notes:b.notes||'None',
+        booking_id:b.id
+      });
+    }catch(e){console.warn('EmailJS error:',e);}
+  }
+  // SMS via webhook
+  if(CFG.smsUrl){
+    try{
+      await fetch(CFG.smsUrl,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          message:`📋 NEW BOOKING - Wali Industries\nName: ${b.name}\nPhone: ${b.phone}\nService: ${b.service}\nDate: ${b.date||'Flexible'}\nAddress: ${b.addr||'Not given'}\nID: ${b.id}`
+        })
+      });
+    }catch(e){console.warn('SMS webhook error:',e);}
+  }
+}
+
+// ── CONTACT FORM ──
+function submitContact(){
+  const name=document.getElementById('c-name').value.trim();
+  const contact=document.getElementById('c-contact').value.trim();
+  const msg=document.getElementById('c-msg').value.trim();
+  if(!name||!contact||!msg){showToast('⚠️ Missing Info','Please fill in all fields.');return;}
+  document.getElementById('c-name').value='';
+  document.getElementById('c-contact').value='';
+  document.getElementById('c-msg').value='';
+  showToast('✅ Sent!','We\'ll be in touch soon.');
+}
+
+// ── ADMIN ──
+function adminLogin(){
+  const pw=document.getElementById('admin-pw').value;
+  const err=document.getElementById('admin-err');
+  if(pw===CFG.adminPw){
+    document.getElementById('admin-login-screen').style.display='none';
+    document.getElementById('admin-dashboard').style.display='block';
+    renderAdminDashboard();
+    err.textContent='';
+  } else {
+    err.textContent='Incorrect password. Try again.';
+    document.getElementById('admin-pw').value='';
+  }
+}
+document.getElementById('admin-pw')?.addEventListener('keydown',e=>{if(e.key==='Enter')adminLogin();});
+
+function adminLogout(){
+  document.getElementById('admin-login-screen').style.display='flex';
+  document.getElementById('admin-dashboard').style.display='none';
+  document.getElementById('admin-pw').value='';
+}
+
+function closeAdmin(){
+  document.getElementById('admin-overlay').classList.remove('open');
+  const url=new URL(window.location);
+  url.searchParams.delete('admin');
+  window.history.replaceState({},'',url);
+}
+
+function renderAdminDashboard(){
+  renderStats();
+  renderBookings();
+  renderCharts();
+}
+
+function renderStats(){
+  const total=bookings.length;
+  const newB=bookings.filter(b=>b.status==='new').length;
+  const confirmed=bookings.filter(b=>b.status==='confirmed').length;
+  const done=bookings.filter(b=>b.status==='done').length;
+  document.getElementById('admin-stats-row').innerHTML=`
+    <div class="adstat"><div class="adstat-num">${total}</div><div class="adstat-label">Total Bookings</div></div>
+    <div class="adstat"><div class="adstat-num" style="color:var(--teal)">${newB}</div><div class="adstat-label">New / Pending</div></div>
+    <div class="adstat"><div class="adstat-num" style="color:#4ade80">${confirmed}</div><div class="adstat-label">Confirmed</div></div>
+    <div class="adstat"><div class="adstat-num" style="color:rgba(255,255,255,0.4)">${done}</div><div class="adstat-label">Completed</div></div>
+  `;
+}
+
+function filterBookings(f,btn){
+  currentFilter=f;
+  document.querySelectorAll('.afilter').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderBookings();
+}
+
+function renderBookings(){
+  const search=(document.getElementById('admin-search')?.value||'').toLowerCase();
+  let list=bookings;
+  if(currentFilter!=='all') list=list.filter(b=>b.status===currentFilter);
+  if(search) list=list.filter(b=>(b.name+b.phone+b.service+b.addr+b.email).toLowerCase().includes(search));
+  const tbody=document.getElementById('bookings-tbody');
+  if(!list.length){
+    tbody.innerHTML=`<tr><td colspan="9"><div class="no-bookings">No bookings found</div></td></tr>`;
+    return;
+  }
+  tbody.innerHTML=list.map((b,i)=>`
+    <tr>
+      <td style="color:rgba(255,255,255,0.3);font-size:11px">${i+1}</td>
+      <td>${new Date(b.submittedAt).toLocaleDateString()}<br/><span style="font-size:11px;color:rgba(255,255,255,0.35)">${new Date(b.submittedAt).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</span></td>
+      <td><strong style="color:var(--white)">${esc(b.name)}</strong><br/><span style="font-size:11px;color:rgba(255,255,255,0.4)">${esc(b.email||'')}</span></td>
+      <td><a href="tel:${esc(b.phone)}" style="color:var(--teal);text-decoration:none">${esc(b.phone)}</a></td>
+      <td>${esc(b.service)}</td>
+      <td>${b.date?`${b.date}<br/><span style="font-size:11px;color:rgba(255,255,255,0.4)">${esc(b.time)}</span>`:'<span style="color:rgba(255,255,255,0.3)">Flexible</span>'}</td>
+      <td style="font-size:12px;max-width:140px">${esc(b.addr||'—')}</td>
+      <td><span class="bstatus ${b.status}">${b.status.charAt(0).toUpperCase()+b.status.slice(1)}</span></td>
+      <td><div class="btable-actions">
+        ${b.status==='new'?`<button class="btable-btn confirm" onclick="updateStatus('${b.id}','confirmed')">Confirm</button>`:''}
+        ${b.status==='confirmed'?`<button class="btable-btn confirm" onclick="updateStatus('${b.id}','done')">Done</button>`:''}
+        ${b.status!=='cancelled'&&b.status!=='done'?`<button class="btable-btn" onclick="updateStatus('${b.id}','cancelled')">Cancel</button>`:''}
+        <button class="btable-btn del" onclick="deleteBooking('${b.id}')">Del</button>
+      </div></td>
+    </tr>
+  `).join('');
+}
+
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function updateStatus(id,status){
+  const b=bookings.find(x=>x.id===id);
+  if(b){b.status=status;saveBookings();renderAdminDashboard();showToast('✅ Updated',`Booking marked as ${status}.`);}
+}
+
+function deleteBooking(id){
+  if(!confirm('Delete this booking?'))return;
+  bookings=bookings.filter(x=>x.id!==id);
+  saveBookings();renderAdminDashboard();showToast('🗑️ Deleted','Booking removed.');
+}
+
+function renderCharts(){
+  // By service
+  const svcCount={};
+  bookings.forEach(b=>{svcCount[b.service]=(svcCount[b.service]||0)+1;});
+  const maxSvc=Math.max(1,...Object.values(svcCount));
+  document.getElementById('chart-services').innerHTML=Object.entries(svcCount).sort((a,b)=>b[1]-a[1]).slice(0,6).map(([k,v])=>`
+    <div class="bar-row">
+      <div class="bar-label">${k}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${(v/maxSvc*100).toFixed(0)}%"></div></div>
+      <div class="bar-val">${v}</div>
+    </div>`).join('')||'<div style="color:rgba(255,255,255,0.3);font-size:13px">No data yet</div>';
+  // By status
+  const statuses=['new','confirmed','done','cancelled'];
+  const maxSt=Math.max(1,...statuses.map(s=>bookings.filter(b=>b.status===s).length));
+  document.getElementById('chart-status').innerHTML=statuses.map(s=>{
+    const v=bookings.filter(b=>b.status===s).length;
+    return`<div class="bar-row"><div class="bar-label">${s.charAt(0).toUpperCase()+s.slice(1)}</div><div class="bar-track"><div class="bar-fill" style="width:${(v/maxSt*100).toFixed(0)}%"></div></div><div class="bar-val">${v}</div></div>`;
+  }).join('');
+}
+
+function saveConfig(){
+  CFG.ejsService=document.getElementById('cfg-ejs-service').value.trim();
+  CFG.ejsTemplate=document.getElementById('cfg-ejs-template').value.trim();
+  CFG.ejsKey=document.getElementById('cfg-ejs-key').value.trim();
+  CFG.smsUrl=document.getElementById('cfg-sms-url').value.trim();
+  const newPw=document.getElementById('cfg-pw').value.trim();
+  if(newPw)CFG.adminPw=newPw;
+  showToast('💾 Saved','Configuration updated for this session.');
+}
+
+// ── CHAT ──
+const chatInp=document.getElementById('chat-inp');
+const chatBtn=document.getElementById('chat-send');
+const chatMsgs=document.getElementById('chat-msgs');
+const chatHistory=[];
+let chatBusy=false;
+
+chatInp.addEventListener('input',()=>{
+  chatInp.style.height='auto';
+  chatInp.style.height=Math.min(chatInp.scrollHeight,100)+'px';
+  chatBtn.disabled=!chatInp.value.trim()||chatBusy;
+});
+chatInp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();if(!chatBtn.disabled)chatGo();}});
+
+function askChip(el){chatInp.value=el.textContent;chatInp.dispatchEvent(new Event('input'));chatGo();}
+
+function addChatMsg(role,text){
+  document.getElementById('chat-chips').style.display='none';
+  const isUser=role==='user';
+  const div=document.createElement('div');
+  div.className='cmsg '+(isUser?'user':'bot');
+  div.innerHTML=`<div class="cmsg-av ${isUser?'usr':'bot'}">${isUser?'You':'WI'}</div><div class="cbubble">${text.replace(/\n/g,'<br>')}</div>`;
+  chatMsgs.appendChild(div);
+  chatMsgs.scrollTop=chatMsgs.scrollHeight;
+}
+
+function addTyping(){
+  const div=document.createElement('div');
+  div.className='cmsg bot';div.id='chat-typing';
+  div.innerHTML=`<div class="cmsg-av bot">WI</div><div class="cbubble"><div class="ctyping"><span></span><span></span><span></span></div></div>`;
+  chatMsgs.appendChild(div);chatMsgs.scrollTop=chatMsgs.scrollHeight;
+}
+
+async function chatGo(){
+  const text=chatInp.value.trim();
+  if(!text||chatBusy)return;
+  chatBusy=true;chatBtn.disabled=true;
+  chatInp.value='';chatInp.style.height='auto';
+  addChatMsg('user',text);
+  chatHistory.push({role:'user',content:text});
+  addTyping();
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',max_tokens:1000,
+        system:`You are the support rep for Wali Industries, a Connecticut property services company.\nPhone: +1 (959) 988-4853\nEmail: Waliomar352@gmail.com\nServices: Pressure washing, Lawn care, Window cleaning, Gutter cleaning, Property maintenance\nPricing: Pressure washing $100–$400; Lawn care $40–$120/visit; Window cleaning $80–$250; always free estimates.\nHours: Mon–Sat 7am–6pm. Service area: Connecticut.\nBe friendly and concise. No markdown formatting. Encourage calling or booking.`,
+        messages:chatHistory
+      })
+    });
+    const data=await res.json();
+    document.getElementById('chat-typing')?.remove();
+    const reply=data.error?'Sorry about that! Please call us at (959) 988-4853.':data.content.map(b=>b.text||'').join('');
+    chatHistory.push({role:'assistant',content:reply});
+    addChatMsg('bot',reply);
+  }catch(e){
+    document.getElementById('chat-typing')?.remove();
+    addChatMsg('bot','Having a connection issue. Call us at (959) 988-4853!');
+  }
+  chatBusy=false;chatBtn.disabled=!chatInp.value.trim();
+}
+
+// Min date
+const bd=document.getElementById('b-date');
+if(bd){const t=new Date();t.setDate(t.getDate()+1);bd.min=t.toISOString().split('T')[0];}
+
+// Load saved config inputs
+window.addEventListener('load',()=>{
+  if(CFG.ejsService) document.getElementById('cfg-ejs-service').value=CFG.ejsService;
+});
+</script>
+</body>
+</html>
